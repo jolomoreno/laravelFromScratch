@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
+use DB;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -16,12 +17,12 @@ class PostController extends Controller
 //        if (! array_key_exists($post, $posts)) {
 //            abort(404, 'Sorry, that post was not found');
 //        }
-        $post = DB::table('posts')->where('slug', $post)->first();
-        if (! $post) {
-            abort(404, 'Sorry, that post was not found');
-        }
+        // $post = DB::table('posts')->where('slug', $post)->first();
+//        if (! $post) {
+//            abort(404, 'Sorry, that post was not found');
+//        }
         return view('post', [
-            'postVariable' => $post
+            'postVariable' => Post::where('slug', $post)->firstOrFail()
         ]);
     }
 }
