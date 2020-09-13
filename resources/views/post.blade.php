@@ -14,6 +14,6 @@
     </head>
     <body>
         <h1>My Blog Post</h1>
-        <p>{{ $postVariable }}</p>
+        <p>{{ $postVariable->body }}</p>
     </body>
 </html>
