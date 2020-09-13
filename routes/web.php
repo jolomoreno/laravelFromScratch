@@ -24,7 +24,7 @@ Route::get('test', function () {
     ]);
 });
 
-Route::get('/posts/{post}', function ($post) {
+/*Route::get('/posts/{post}', function ($post) {
     $posts = [
         'my-first-post' => 'Hello, this is my first post',
         'my-second-post' => 'Hello, this is my second post'
@@ -34,4 +34,6 @@ Route::get('/posts/{post}', function ($post) {
     }
     return view('post', [
        'postVariable' => $posts[$post] ]);
-});
+});*/
+
+Route::get('/posts/{post}', 'PostController@show');
